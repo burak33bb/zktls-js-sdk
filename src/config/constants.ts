@@ -18,3 +18,7 @@ export const BASEAPIMAP = {
   // production: 'https://api.padolabs.org',
 };
 export const BASEAPI = BASEAPIMAP[ENV]
+
+export function getBaseApi(env = ENV) {
+  return env === 'production' ? BASEAPIMAP.production : BASEAPIMAP.development;
+}

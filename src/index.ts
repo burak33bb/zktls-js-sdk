@@ -67,7 +67,7 @@ class PrimusZKTLS {
         return;
       }
     }
-    void eventReport(rawDataObj);
+    void eventReport(rawDataObj, this.options.env);
   }
 
   init(appId: string, appSecret?: string, options?: InitOptions): Promise<string | boolean> {
@@ -509,7 +509,7 @@ class PrimusZKTLS {
    */
   private async _checkAppQuote(): Promise<void> {
     try {
-      const {rc, result} = await getAppQuote({ appId: this.appId });
+      const {rc, result} = await getAppQuote({ appId: this.appId }, this.options.env);
       // console.log('_checkAppQuote', result)
       // Business logic based on quote result
       if (rc !== 0) {
