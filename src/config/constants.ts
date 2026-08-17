@@ -1,3 +1,5 @@
+import type { Env } from '../types.js';
+
 export const PADOEXTENSIONID = "oeiomhmbaapihbilkfkhmlajkeegnjhe";
 
 export const ONESECOND = 1000;
@@ -17,8 +19,8 @@ export const BASEAPIMAP = {
   production: 'https://api.padolabs.org',
   // production: 'https://api.padolabs.org',
 };
-export const BASEAPI = BASEAPIMAP[ENV]
+export const BASEAPI = BASEAPIMAP[ENV];
 
-export function getBaseApi(env = ENV) {
+export function getBaseApi(env: Env = ENV) {
   return env === 'production' ? BASEAPIMAP.production : BASEAPIMAP.development;
 }
